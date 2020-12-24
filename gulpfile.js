@@ -1,5 +1,4 @@
 //Import
-
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const sourceMaps = require('gulp-sourcemaps');
@@ -7,19 +6,17 @@ const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync');
 
 //SCSS
-
 function style() {
     return gulp.src('./assets/scss/*.scss')
-    .pipe(sourceMaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer())
-    .pipe(sourceMaps.write('./'))
-    .pipe(gulp.dest('./assets/css'))
-    .pipe(browserSync.stream());
+        .pipe(sourceMaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer())
+        .pipe(sourceMaps.write('./'))
+        .pipe(gulp.dest('./assets/css'))
+        .pipe(browserSync.stream());
 }
 
 //Serve and watch
-
 function watch() {
     browserSync.init({
         server: {
